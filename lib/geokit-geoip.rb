@@ -18,15 +18,14 @@ module Geokit
       def self.do_geocode(ip, options = {})
         return GeoLoc.new unless /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})?$/.match(ip)
         if (res = ::GeoIP.new(Geocoders::geoip_data_path).city(ip))
-          loc = GeoLoc.new({
-            :provider => 'maxmind_city',
-            :lat => res.latitude,
-            :lng => res.longitude,
-            :city => res.city_name,
-            :state => res.region_name,
-            :zip => res.postal_code,
-            :country_code => res.country_code2
-          })
+          logger.debug "GeoIpCityGeocoder:: res #{res}"
+          loc = new_loc          
+          loc.city          = res.city_name
+          loc.zip           = res.postal_code
+          loc.country_code  = res.country_code2
+          loc.lat           = res.latitude
+          loc.lng           = res.longitude
+          loc.state         = res.region_name
           # Work around Geokit's jankiness
           loc.success = res.city_name && res.city_name != ''
           loc
