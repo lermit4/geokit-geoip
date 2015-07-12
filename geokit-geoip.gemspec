@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name = 'geokit-geoip'
-  s.version = '0.1.2'
+  s.version = '0.2.0'
 
   s.authors = ["Aaron Suggs"]
   s.description = "Our GeoKit module for using a local (proprietary) Maxmind GeoIP database"

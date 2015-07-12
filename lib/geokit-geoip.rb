@@ -18,7 +18,6 @@ module Geokit
       def self.do_geocode(ip, options = {})
         return GeoLoc.new unless /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})?$/.match(ip)
         if (res = ::GeoIP.new(Geocoders::geoip_data_path).city(ip))
-          logger.debug "GeoIpCityGeocoder:: res #{res}"
           loc = new_loc          
           loc.city          = res.city_name
           loc.zip           = res.postal_code
