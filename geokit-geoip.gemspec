@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name = 'geokit-geoip'
-  s.version = '0.1.0'
+  s.version = '0.1.1'
 
   s.authors = ["Aaron Suggs"]
   s.description = "Our GeoKit module for using a local (proprietary) Maxmind GeoIP database"
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir.glob("test/**/*")
 
   s.add_dependency 'geoip'
-  s.add_dependency 'geokit', '>= 1.5.0' # What we're using on kickstarter at the moment
+  s.add_dependency 'geokit', '>= 1.9.0' # What we're using on kickstarter at the moment
   s.add_development_dependency 'rake'
   s.add_development_dependency 'shoulda'
 end
